@@ -1,5 +1,5 @@
 const EditClassForm = (props) => {
-  return <div className="editClassForm">EditClassForm</div>;
+  return <div id="editClassForm">EditClassForm</div>;
 };
 
 export default EditClassForm;

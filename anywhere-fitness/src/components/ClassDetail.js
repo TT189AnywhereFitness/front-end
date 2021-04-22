@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const ClassDetail = (props) => {
-    return ( <div className="ClassDetail">ClassDetail component</div> );
-}
- 
+  return <div id="classDetail">ClassDetail component</div>;
+};
+
 export default ClassDetail;
