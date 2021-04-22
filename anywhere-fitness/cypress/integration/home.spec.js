@@ -1,6 +1,6 @@
 /* eslint-disable jest/valid-expect */
 /* eslint-disable no-undef */
-describe("home", () => {
+describe("Home component", () => {
   beforeEach(() => {
     cy.visit("http://localhost:3000/home");
   });
