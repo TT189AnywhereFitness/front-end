@@ -1,6 +1,7 @@
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Search from "./components/Search";
+import Signup from "./components/Signup";
 
 function App() {
   return (
@@ -9,6 +10,7 @@ function App() {
       <Home />
       <Search />
       <Login />
+      <Signup />
     </div>
   );
 }
