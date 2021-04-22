@@ -1,3 +1,4 @@
+import AddClassForm from "./components/AddClassForm";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Search from "./components/Search";
@@ -11,6 +12,7 @@ function App() {
       <Search />
       <Login />
       <Signup />
+      <AddClassForm />
     </div>
   );
 }
