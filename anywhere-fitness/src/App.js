@@ -1,45 +1,53 @@
+import { useState } from "react";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Search from "./components/Search";
 import Signup from "./components/Signup";
 
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
+import HeaderNav from "./components/HeaderNav";
 
 function App() {
+  const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
   return (
+    // Unless authenticated, user will be redirected to login page
     <Router>
-      <header id="header">
-        <h1>Anywhere Fitness</h1>
-        <nav className="navbar">
-          <ul className="navlist">
-            <li className="navItem">
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/signup">Sign Up</Link>
-            </li>
-            <li>
-              <Link to="/login">Log In</Link>
-            </li>
-            <li>
-              <Link to="/search">Search Classes</Link>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <HeaderNav />
       <Switch>
-        <Route path="/signup">
-          <Signup />
+        <Route path="/home">
+          <Home />
         </Route>
-        <Route path="/search">
-          <Search />
-        </Route>
+        <Route
+          path="/signup"
+          render={() =>
+            isUserAuthenticated ? <Signup /> : <Redirect to="/login" />
+          }
+        />
+        <Route
+          path="/search"
+          render={() =>
+            isUserAuthenticated ? <Search /> : <Redirect to="/login" />
+          }
+        />
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/">
-          <Home />
-        </Route>
+        <Route
+        // route placed at end of switch to act as a catch-all for urls
+          path="/"
+          render={() =>
+            isUserAuthenticated ? (
+              <Redirect to="/home" />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
+        />
       </Switch>
     </Router>
   );

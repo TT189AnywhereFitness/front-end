@@ -1,1 +1,4 @@
+/* import reset.css from MeyersWeb */
 @import url('./reset.css');
+/* import stylesheel for react-bootstrap */
+@import url('bootstrap/dist/css/bootstrap.min.css');
