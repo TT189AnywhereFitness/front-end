@@ -2,6 +2,12 @@
 import React, { useEffect, useState } from "react";
 import ClassDetail from "./ClassDetail";
 
+const dummyImage = {
+    url: "https://www.pikpng.com/pngl/m/65-657436_student-royalty-free-class-clip-art-class-clipart.png",
+    alt: "Student Royalty-free Class Clip Art - Class Clipart - Png Download@pikpng.com"
+}
+
+
 // to simulate network load time
 const fakeDelayDuration = 1500;
 
@@ -11,6 +17,7 @@ const Home = (props) => {
       name: "Lorem Ipsum",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu cursus vitae congue mauris rhoncus aenean. Arcu vitae elementum curabitur vitae nunc. Enim ut tellus elementum sagittis vitae et leo. Enim diam vulputate ut pharetra sit amet aliquam. Morbi tristique senectus et netus et malesuada. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Orci ac auctor augue mauris augue. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Parturient montes nascetur ridiculus mus. In mollis nunc sed id semper risus in. Aliquet enim tortor at auctor urna. Amet dictum sit amet justo donec. Feugiat in ante metus dictum at tempor commodo ullamcorper a. Elementum tempus egestas sed sed. Amet consectetur adipiscing elit duis tristique sollicitudin nibh. Nisl purus in mollis nunc sed. Natoque penatibus et magnis dis. Hac habitasse platea dictumst vestibulum rhoncus. Adipiscing elit duis tristique sollicitudin nibh sit amet.",
+        imageURL: ""
     },
     {
       name: "Hipster Ipsum ",
@@ -66,6 +73,8 @@ const Home = (props) => {
             key={index}
             name={listItem.name}
             description={listItem.description}
+            imageURL={dummyImage.url}
+            alt={dummyImage.alt}
           />
         ))
       ) : (
