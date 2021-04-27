@@ -1,12 +1,29 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
+import { Container, Jumbotron } from "react-bootstrap";
 import ClassDetail from "./ClassDetail";
 
-const dummyImage = {
-    url: "https://www.pikpng.com/pngl/m/65-657436_student-royalty-free-class-clip-art-class-clipart.png",
-    alt: "Student Royalty-free Class Clip Art - Class Clipart - Png Download@pikpng.com"
-}
+const homeStyle = {
+  display: "flex",
+  flexFlow: "row wrap",
+  justifyContent: "space-around",
+  alignItems: "stretch"
+};
 
+const classDetail = {
+  url:
+    "https://www.pikpng.com/pngl/m/65-657436_student-royalty-free-class-clip-art-class-clipart.png",
+  alt:
+    "Student Royalty-free Class Clip Art - Class Clipart - Png Download@pikpng.com",
+  style: {
+    width: "450px",
+    minWidth: "280px",
+    maxWidth: "80vw",
+    border: "1px solid black",
+    borderRadius: "12px",
+    marginTop: "1rem",
+  },
+};
 
 // to simulate network load time
 const fakeDelayDuration = 1500;
@@ -16,8 +33,8 @@ const Home = (props) => {
     {
       name: "Lorem Ipsum",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu cursus vitae congue mauris rhoncus aenean. Arcu vitae elementum curabitur vitae nunc. Enim ut tellus elementum sagittis vitae et leo. Enim diam vulputate ut pharetra sit amet aliquam. Morbi tristique senectus et netus et malesuada. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Orci ac auctor augue mauris augue. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Parturient montes nascetur ridiculus mus. In mollis nunc sed id semper risus in. Aliquet enim tortor at auctor urna. Amet dictum sit amet justo donec. Feugiat in ante metus dictum at tempor commodo ullamcorper a. Elementum tempus egestas sed sed. Amet consectetur adipiscing elit duis tristique sollicitudin nibh. Nisl purus in mollis nunc sed. Natoque penatibus et magnis dis. Hac habitasse platea dictumst vestibulum rhoncus. Adipiscing elit duis tristique sollicitudin nibh sit amet.",
-        imageURL: ""
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Arcu cursus vitae congue mauris rhoncus aenean. Arcu vitae elementum curabitur vitae nunc. Enim ut tellus elementum sagittis vitae et leo. Enim diam vulputate ut pharetra sit amet aliquam. Morbi tristique senectus et netus et malesuada. Euismod elementum nisi quis eleifend quam adipiscing vitae proin sagittis. Orci ac auctor augue mauris augue. Commodo viverra maecenas accumsan lacus vel facilisis volutpat est. Parturient montes nascetur ridiculus mus.",
+      imageURL: "",
     },
     {
       name: "Hipster Ipsum ",
@@ -64,40 +81,29 @@ const Home = (props) => {
   }, []);
 
   return (
-    <div id="home">
-      {/* Simple view for MVP */}
-      <h1>Available Classes</h1>
-      {classList ? (
-        classList.map((listItem, index) => (
-          <ClassDetail
-            key={index}
-            name={listItem.name}
-            description={listItem.description}
-            imageURL={dummyImage.url}
-            alt={dummyImage.alt}
-          />
-        ))
-      ) : (
-        <div className="loading">
-          <h2>Getting list of classes...</h2>
-        </div>
-      )}
-
-      {/* list all classes with edit buttons enabled for instructors */}
-
-      {/* My Classes view for instructors */}
-
-      {/* add/edit/remove class functionality - look into pre-built toolbars in react-bootstrap */}
-
-      {/* populate with filtered data */}
-
-      {/* import ClassDetail component for each class  */}
-
-      {/* Users view */}
-
-      {/* list of enrolled classes */}
-
-      {/* list of upcoming classes with dropdown view filter */}
+    <div className="home">
+      <Jumbotron>
+          <h1>Welcome Back!</h1>
+          <p>Tempor orci eu lobortis elementum nibh tellus molestie nunc.</p>
+      </Jumbotron>
+      <Container style={homeStyle}>
+        {classList ? (
+          classList.map((listItem, index) => (
+            <ClassDetail
+              key={index}
+              name={listItem.name}
+              description={listItem.description}
+              imageURL={classDetail.url}
+              alt={classDetail.alt}
+              style={classDetail.style}
+            />
+          ))
+        ) : (
+          <div className="loading">
+            <h2>Getting list of classes...</h2>
+          </div>
+        )}
+      </Container>
     </div>
   );
 };
