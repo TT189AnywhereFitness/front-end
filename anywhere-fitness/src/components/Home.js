@@ -12,9 +12,9 @@ const homeStyle = {
 
 const classDetail = {
   url:
-    "https://www.pikpng.com/pngl/m/65-657436_student-royalty-free-class-clip-art-class-clipart.png",
+    "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hurdle_-_The_Noun_Project.svg",
   alt:
-    "Student Royalty-free Class Clip Art - Class Clipart - Png Download@pikpng.com",
+    "hurdle SVG by James VanDyke, CC0, via Wikimedia Commons",
   style: {
     width: "450px",
     minWidth: "280px",
