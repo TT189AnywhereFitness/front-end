@@ -35,7 +35,7 @@ const Signup = (props) => {
 
   const signup = (e) => {
     e.preventDefault();
-    axios.post(' REGISTRATION API HERE ', formValues)
+    axios.post('localhost:5000/api/auth/register', formValues)
     .then(res => {
       props.history.push('/login');
       console.log('register post:', res.data);
