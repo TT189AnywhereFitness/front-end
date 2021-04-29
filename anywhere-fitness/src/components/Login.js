@@ -2,36 +2,43 @@ import React from "react";
 
 const Login = (props) => {
 
-  const { name, value, type } = props
+  const { values } = props
+
+  // const onChange = evt => {
+  //   const { name, value, type } = evt.target
+  // }
 
   return (
   <div id="login">Login
     <form className="login form">
       <button>Submit</button>
-      <label>Username 
+      <label>Username </label>
         <input 
           name="username"
-          //value={value.username}
+          //value={values.username}
           type="text"
           placeholder="type your username"
+          //onChange={onChange}
         />
-      </label>
-      <label>Password
+      
+      <label>Password</label>
         <input 
           name="password"
-          //value={value.password}
-          type="text"
+          //value={values.password}
+          type="password"
           placeholder="type your password"
+          //onChange={onChange}
         />
-      </label>
-      <label>Authorization Code
+      
+      <label>Authorization Code</label>
         <input 
           name="authorization"
-          //value={value.authorization}
+          //value={values.authorization}
           type="text"
           placeholder="Instructors enter code here"
+          //onChange={onChange}
         />
-      </label>
+      
     </form>
   </div>
 

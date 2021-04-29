@@ -12,30 +12,30 @@ const Signup = (props) => {
   <div id="signup">Signup
     <form className="signup form">
       <button>Submit</button>
-      <label>Username 
+      <label>Username</label> 
         <input 
           name="username"
           //value={value.username}
           type="text"
           placeholder="type your username"
         />
-      </label>
-      <label>Password
+      
+      <label>Password</label>
         <input 
           name="password"
           //value={value.password}
           type="text"
           placeholder="type your password"
         />
-      </label>
-      <label>Authorization Code
+      
+      <label>Authorization Code</label>
         <input 
           name="authorization"
           //value={value.authorization}
           type="text"
           placeholder="Instructors enter code here"
         />
-      </label>
+      
     </form>
   </div>
     

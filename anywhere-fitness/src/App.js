@@ -14,6 +14,7 @@ import HeaderNav from "./components/HeaderNav";
 
 function App() {
   const [isUserAuthenticated, setIsUserAuthenticated] = useState(false);
+
   return (
     // Unless authenticated, user will be redirected to login page
     <Router>
