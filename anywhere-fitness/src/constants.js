@@ -1,0 +1,1 @@
+export const rootURL = "https://tt-189-anywhere-fitness-api.herokuapp.com/api/"
