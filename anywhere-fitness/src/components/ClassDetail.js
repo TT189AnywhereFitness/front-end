@@ -1,14 +1,52 @@
 import React from "react";
-import { Card } from "react-bootstrap";
+import { Badge, Card, Table } from "react-bootstrap";
 
 const ClassDetail = (props) => {
-  const { name, description, imageURL, alt, style } = props;
+  const { style,
+    class_id,
+    class_name,
+    type,
+    start_time,
+    duration,
+    occasion,
+    day,
+    intensity,
+    location,
+    max_size,
+    instructor } = props;
   return (
     <Card style={style}>
-      <Card.Img variant="top" src={imageURL} alt={alt} />
-      <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>{description}</Card.Text>
+    <Card.Body>
+      <Card.Title>{class_name}</Card.Title>
+      <Card.Subtitle>{type}<Badge>{intensity}</Badge></Card.Subtitle>
+      <Card.Text>Led by {instructor}</Card.Text>
+        <Table>
+            <thead></thead>
+          <tbody>
+            <tr>
+            <td>Start Time</td><td>{start_time}</td>
+          </tr>
+          <tr>
+            <td>Duration</td><td>{duration}</td>
+          </tr>
+          <tr>
+            <td>Location</td><td>{location}</td>
+          </tr>
+          <tr>
+            <td>Day</td><td>{day}</td>
+          </tr>
+          <tr>
+            <td>Maximum Class Size</td><td>{max_size}</td>
+          </tr>
+          <tr>
+            <td>Occasion</td><td>{occasion}</td>
+          </tr>
+          <tr>
+            <td>Class ID</td><td>{class_id}</td>
+          </tr>
+          </tbody>
+        </Table>
+        
       </Card.Body>
     </Card>
   );
