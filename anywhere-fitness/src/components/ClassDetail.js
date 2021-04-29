@@ -1,5 +1,5 @@
 import React from "react";
-import { Badge, Card, Table } from "react-bootstrap";
+import { Badge, Button, Card, Table } from "react-bootstrap";
 
 const ClassDetail = (props) => {
   const { style,
@@ -46,7 +46,7 @@ const ClassDetail = (props) => {
           </tr>
           </tbody>
         </Table>
-        
+        <Button variant="primary" block >Sign Up!</Button>
       </Card.Body>
     </Card>
   );

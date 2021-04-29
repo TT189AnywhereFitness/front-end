@@ -21,9 +21,9 @@ const classDetail = {
     width: "450px",
     minWidth: "280px",
     maxWidth: "80vw",
-    border: "1px solid black",
     borderRadius: "12px",
     marginTop: "1rem",
+    boxShadow: "3px 3px 5px 6px #ccc",
   },
 };
 
