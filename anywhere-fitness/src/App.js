@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Search from "./components/Search";
 import Signup from "./components/Signup";
+import PrivateRoute from "./components/PrivateRoute";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/HeaderNav";
 // import PrivateRoute from "./components/PrivateRoute"
@@ -17,7 +18,7 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path='/signup' component={Signup} />
-      <Route path="/search" component = {Search}/>
+      <PrivateRoute path="/search" component = {Search}/>
 
     </StyledApp>
   );
