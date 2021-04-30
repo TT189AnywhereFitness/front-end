@@ -39,72 +39,73 @@ function AddClassForm() {
     }
 
     return (
+        <StyledDiv>
         <StyledContainer>
             <StyledForm onSubmit={onSubmit}>
-                <label>Class Name:
+                <label>Class Name:  
                     <input className="inputs"
                     type = "text"
                     name = "class_name"
                     values = {formValues.class_name}
                     onChange = {handleChange}/>
                 </label><br></br>
-                <label>Class Type:
+                <label>Class Type:  
                     <input className="inputs"
                     type = "text"
                     name = "type"
                     values = {formValues.type}
                     onChange = {handleChange}/>
                 </label><br></br>
-                <label>Start Time:
+                <label>Start Time:  
                     <input className="inputs"
                     type = "text"
                     name = "start_time"
                     values = {formValues.start_time}
                     onChange = {handleChange}/>
                 </label><br></br>
-                <label>Class Duration:
+                <label>Class Duration:  
                     <input className="inputs"
                     type = "text"
                     name = "duration"
                     values = {formValues.duration}
                     onChange = {handleChange}/>
                 </label><br></br>
-                <label>Occasion:
+                <label>Occasion:  
                     <input className="inputs"
                     type = "text"
                     name = "occasion"
                     values = {formValues.occasion}
                     onChange = {handleChange}/>
                 </label><br></br>
-                <label>Day of The Week:
+                <label>Day of The Week:  
                     <input className="inputs"
                     type = "text"
                     name = "day"
                     values = {formValues.day}
                     onChange = {handleChange}/>
                 </label><br></br>
-                <label>Class Intensity:
+                <label>Class Intensity:  
                     <input className="inputs"
                     type = "text"
                     name = "intensity"
                     values = {formValues.intensity}
                     onChange = {handleChange}/>
                 </label><br></br>
-                <label>Class Location:
+                <label>Class Location:  
                     <input className="inputs"
                     type = "text"
                     name = "location"
                     values = {formValues.location}
                     onChange = {handleChange}/>
                 </label><br></br>
-                <label>Maximum Class Size:
+                <label>Maximum Class Size:  
                     <input className="inputs"
                     type = "text"
                     name = "max_size"
                     values = {formValues.max_size}
                     onChange = {handleChange}/>
                 </label><br></br>
-                <label>Class Instructor:
+                <label>Class Instructor:  
                     <input className="inputs"
                     type = "text"
                     name = "instructor"
@@ -114,19 +115,19 @@ function AddClassForm() {
                 <button>Submit</button>
             </StyledForm>
         </StyledContainer>
+        </StyledDiv>
     )
 }
 
 export default AddClassForm;
 
+const StyledDiv = styled.div ``
+
 const StyledContainer = styled.div`
-    width: 40vw;
-    height: 60vh;
-    position: absolute;
-    top: 6%;
-    left: 28%;
+    justify-content: center;
     display: flex;
-    align-items: center;
+    align-items: right;
+    text-align:right;
 `
 const StyledForm = styled.form`
   display: flex;
@@ -142,6 +143,7 @@ const StyledForm = styled.form`
   }
   .inputItem {
     margin: 0.5rem;
+    padding: 1rem;
   }
   .inputTerms {
     margin: 0.5rem 0.5rem 0 0;
@@ -150,6 +152,7 @@ const StyledForm = styled.form`
   }
   .inputItem label {
     float: left;
+    padding: 1rem;
   }
   .inputItem input {
     width: 100%;
