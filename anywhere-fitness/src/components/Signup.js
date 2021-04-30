@@ -8,10 +8,6 @@ const initialFormValues = {
   authorization: ''
 };
 
-const initialTerms = {
-  terms: false,
-}
-
 const Signup = (props) => {
   const [formValues, setFormValues] = useState(initialFormValues);
   // const [terms, setTerms] = useState(initialTerms);
@@ -45,65 +41,52 @@ const Signup = (props) => {
     })
   }
 
-  return(
-    <div>
-      <StyledForm onSubmit={signup}>
-                <StyledLabel>Username</StyledLabel>
-                <StyledInput
-                type='text'
-                name='username'
-                value={formValues.username}
-                onChange={handleChange}
-                />
-                <StyledLabel>Password</StyledLabel>
-                <StyledInput
-                type='password'
-                name='password'
-                value={formValues.password}
-                onChange={handleChange}
-                />
-                <StyledLabel>Authorization Code</StyledLabel>
-                <StyledInput
-                type='text'
-                name='authorization'
-                value={formValues.authorization}
-                onChange={handleChange}
-                />
-                <div>
-                    <StyledButton>Submit</StyledButton>
-                </div>
-      </StyledForm>
-    </div>
+  return (
+         
+    <StyledDiv>
+        <Form onSubmit = {signup}>
+            <StyledLabel> Username:
+            <StyledInput
+                type = "text"
+                name = "username" 
+                values = {formValues.username}
+                onChange = {handleChange}/>
+            </StyledLabel>
+            <StyledLabel>Password:
+            <StyledInput
+                type = "password"
+                name = "password"
+                values = {formValues.password}
+                onChange = {handleChange}/>
+            </StyledLabel>
+            <StyledLabel> Authorization Code:
+            <StyledInput
+                type = "text"
+                name = "authorization" 
+                values = {formValues.authorization}
+                onChange = {handleChange}/>
+            </StyledLabel>
+            <StyledButton>Signup</StyledButton>
+        </Form>
+    </StyledDiv> 
+
   )
 }
 
 export default Signup;
 
-const StyledForm = styled.form`
+const StyledDiv = styled.div`
+    
+`
+
+const Form = styled.form`
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 60vh;
-    border-radius: 10px;
-    margin: auto;
-    padding: 1rem;
-    width: auto;
-`;
-
-const StyledButton = styled.button`
-margin:10px;
-width:80px;
-height:30px;
-border-radius:8px;
-border:none;
-background-color:white;
-box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
-`
-
-const StyledLabel = styled.label`
+    flex-direction: column;
     text-align:left;
-    font-size:1.1rem;
+
 `
 
 const StyledInput = styled.input`
@@ -115,6 +98,21 @@ const StyledInput = styled.input`
     background-color: #ececec;
     height:20px;
     `
+
+const StyledLabel = styled.label`
+    text-align:left;
+    font-size:1.2rem;
+
+`
+const StyledButton = styled.button`
+    margin:10px;
+    width:80px;
+    height:30px;
+    border-radius:8px;
+    border:none;
+    background-color:white;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, .1);
+`
 
 // const Signup = (props) => {
 
