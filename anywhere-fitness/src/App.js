@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Header from "./components/HeaderNav";
 // import PrivateRoute from "./components/PrivateRoute"
 import styled from 'styled-components';
+import AddClassForm from './components/AddClassForm'
 
 function App() {
   return (
@@ -18,7 +19,8 @@ function App() {
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path='/signup' component={Signup} />
-      <PrivateRoute path="/search" component = {Search}/>
+      <Route path="/search" component = {Search}/>
+      <Route path = "/add" component = {AddClassForm}/>
 
     </StyledApp>
   );
