@@ -6,8 +6,14 @@ import Signup from "./components/Signup";
 import PrivateRoute from "./components/PrivateRoute";
 import { Route } from "react-router-dom";
 import Header from "./components/HeaderNav";
+
 // import PrivateRoute from "./components/PrivateRoute";
 import { StyledApp } from "./components/styled";
+
+// import PrivateRoute from "./components/PrivateRoute"
+import styled from 'styled-components';
+import AddClassForm from './components/AddClassForm'
+
 
 function App() {
   return (
@@ -15,8 +21,15 @@ function App() {
       <Header />
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
+
       <Route path="/signup" component={Signup} />
       <PrivateRoute path="/search" component={Search} />
+
+      <Route path='/signup' component={Signup} />
+      <Route path="/search" component = {Search}/>
+      <Route path = "/add" component = {AddClassForm}/>
+
+
     </StyledApp>
   );
 }
