@@ -2,8 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { Container, Jumbotron } from "react-bootstrap";
 import ClassDetail from "./ClassDetail";
-import { rootURL } from "../constants";
-import axios from 'axios'
+// import { rootURL } from "../constants";
+import { dummyClassList } from "../constants";
+// import axios from 'axios'
 import styled from "styled-components";
 
 const homeStyle = {
@@ -32,27 +33,12 @@ const classDetail = {
 const fakeDelayDuration = 1500;
 
 const Home = (props) => {
-  const dummyClassList = [
-    {
-      "class_id": 1,
-      "class_name": "Zumba",
-      "type": "dance",
-      "start_time": "12:00 PM",
-      "duration": "60",
-      "occasion": "weekly",
-      "day": "Friday",
-      "intensity": "low-high",
-      "location": "online",
-      "max_size": "32",
-      "instructor": "Paula O"
-  },
-  ];
 
   const [classList, setClassList] = useState(null);
 
   useEffect(() => {
 
-    axios.get(`${rootURL}`, (res)=>console.log(res))
+    // axios.get(`${rootURL}`, (res)=>setClassList(res.data)) //uncomment and make appropriate changes when there is an array of classes to fetch
 
     const fakeDelay = setTimeout(() => {
       Promise.resolve()
