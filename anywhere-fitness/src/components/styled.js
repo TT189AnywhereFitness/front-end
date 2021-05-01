@@ -16,7 +16,7 @@ export const StyledApp = styled.div`
   max-width: 100%;
 `;
 
-const Form = styled.form`
+export const Form = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,7 +25,7 @@ const Form = styled.form`
   text-align: left;
 `;
 
-const StyledInput = styled.input`
+export const StyledInput = styled.input`
   width: 250px;
   display: flex;
   text-align: left;
@@ -35,11 +35,11 @@ const StyledInput = styled.input`
   height: 20px;
 `;
 
-const StyledLabel = styled.label`
+export const StyledLabel = styled.label`
   text-align: left;
   font-size: 1.2rem;
 `;
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   margin: 10px;
   width: 80px;
   height: 30px;
