@@ -1,38 +1,27 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Home from "./components/Home";
 import Login from "./components/Login";
 import Search from "./components/Search";
 import Signup from "./components/Signup";
 import PrivateRoute from "./components/PrivateRoute";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Header from "./components/HeaderNav";
-// import PrivateRoute from "./components/PrivateRoute"
-import styled from 'styled-components';
+// import PrivateRoute from "./components/PrivateRoute";
+import { StyledApp } from "./components/styled";
 
 function App() {
   return (
-
     <StyledApp className="App">
-      
-      <Header/>
+      <Header />
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
-      <Route path='/signup' component={Signup} />
-      <PrivateRoute path="/search" component = {Search}/>
-
+      <Route path="/signup" component={Signup} />
+      <PrivateRoute path="/search" component={Search} />
     </StyledApp>
   );
 }
 
 export default App;
-
-const StyledApp = styled.div`
-  max-width:100%;
-`
-
-
-
-
 
 // import {
 //   BrowserRouter as Router,
@@ -82,5 +71,3 @@ const StyledApp = styled.div`
 //     </Router>
 //   );
 // }
-
-

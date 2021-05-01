@@ -5,20 +5,19 @@ import ClassDetail from "./ClassDetail";
 // import { rootURL } from "../constants";
 import { dummyClassList } from "../constants";
 // import axios from 'axios'
-import styled from "styled-components";
+import { JumboP } from "./styled";
 
 const homeStyle = {
   display: "flex",
   flexFlow: "row wrap",
   justifyContent: "space-around",
-  alignItems: "stretch"
+  alignItems: "stretch",
 };
 
 const classDetail = {
   url:
     "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hurdle_-_The_Noun_Project.svg",
-  alt:
-    "hurdle SVG by James VanDyke, CC0, via Wikimedia Commons",
+  alt: "hurdle SVG by James VanDyke, CC0, via Wikimedia Commons",
   style: {
     width: "450px",
     minWidth: "280px",
@@ -33,11 +32,9 @@ const classDetail = {
 const fakeDelayDuration = 1500;
 
 const Home = (props) => {
-
   const [classList, setClassList] = useState(null);
 
   useEffect(() => {
-
     // axios.get(`${rootURL}`, (res)=>setClassList(res.data)) //uncomment and make appropriate changes when there is an array of classes to fetch
 
     const fakeDelay = setTimeout(() => {
@@ -52,14 +49,30 @@ const Home = (props) => {
   return (
     <div className="home">
       <Jumbotron>
-          <h1>Welcome Back!</h1>
-          <StyledDiv>
-          <p>These days, fitness classes can be held anywhere- a park, an unfinished basement or a garage- not just at a traditional gym. Certified fitness instructors need an easy way to take the awkwardness out of attendance taking and client payment processing.</p>
+        <h1>Welcome Back!</h1>
+        <JumboP>
+          These days, fitness classes can be held anywhere- a park, an
+          unfinished basement or a garage- not just at a traditional gym.
+          Certified fitness instructors need an easy way to take the awkwardness
+          out of attendance taking and client payment processing.
+        </JumboP>
 
-          <p>While you could use several mobile apps to accomplish this, **AnywhereFitness** is the all-in-one solution to meet your “on-location” fitness class needs. AnywhereFitness makes it painless for Instructors and Clients alike to hold and attend Fitness classes wherever they might be held. </p>
+        <JumboP>
+          While you could use several mobile apps to accomplish this,
+          **AnywhereFitness** is the all-in-one solution to meet your
+          “on-location” fitness class needs. AnywhereFitness makes it painless
+          for Instructors and Clients alike to hold and attend Fitness classes
+          wherever they might be held.{" "}
+        </JumboP>
 
-          <p>Instructors can take attendance, request and process payments, create virtual “punch passes” for each type of class offered, alert clients of cancellations or location changes and so much more. Clients can easily find out information on classes - location, class size, start time and duration, as well as reschedule or cancel an upcoming appointment or reservation right from the mobile app.</p>
-          </StyledDiv>
+        <JumboP>
+          Instructors can take attendance, request and process payments, create
+          virtual “punch passes” for each type of class offered, alert clients
+          of cancellations or location changes and so much more. Clients can
+          easily find out information on classes - location, class size, start
+          time and duration, as well as reschedule or cancel an upcoming
+          appointment or reservation right from the mobile app.
+        </JumboP>
       </Jumbotron>
       <Container style={homeStyle}>
         {classList ? (
@@ -77,7 +90,7 @@ const Home = (props) => {
               intensity={listItem.intensity}
               location={listItem.location}
               max_size={listItem.max_size}
-              instructor={listItem.instructor}              
+              instructor={listItem.instructor}
             />
           ))
         ) : (
@@ -91,8 +104,3 @@ const Home = (props) => {
 };
 
 export default Home;
-
-const StyledDiv = styled.div `
-  width: 50%;
-  font-size: 1rem;
-`
