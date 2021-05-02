@@ -2,9 +2,9 @@
 import React, { useEffect, useState } from "react";
 import { Container, Jumbotron } from "react-bootstrap";
 import ClassDetail from "./ClassDetail";
-// import { rootURL } from "../constants";
+import { rootURL } from "../constants";
 import { dummyClassList } from "../constants";
-// import axios from 'axios'
+import axios from 'axios';
 import { JumboP } from "./styled";
 
 const homeStyle = {
@@ -35,7 +35,7 @@ const Home = (props) => {
   const [classList, setClassList] = useState(null);
 
   useEffect(() => {
-    // axios.get(`${rootURL}`, (res)=>setClassList(res.data)) //uncomment and make appropriate changes when there is an array of classes to fetch
+    axios.get(`${rootURL}`, (res)=>setClassList(res.data)) //uncomment and make appropriate changes when there is an array of classes to fetch
 
     const fakeDelay = setTimeout(() => {
       Promise.resolve()

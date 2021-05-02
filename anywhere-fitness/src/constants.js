@@ -1,4 +1,12 @@
-export const rootURL = "https://tt-189-anywhere-fitness-api.herokuapp.com/api/";
+export const rootURL = "https://tt-189-anywhere-fitness-api.herokuapp.com/api";
+export const classes = "/classes";
+/* example use: 
+axios.get(`${rootURL}${getClassById(id)}`)
+.then(res => setClassList(res.data))
+**/
+export const getClassById = (id) => {
+  return `/classes/${id}`;
+};
 export const dummyClassList = [
   {
     class_id: 1,
