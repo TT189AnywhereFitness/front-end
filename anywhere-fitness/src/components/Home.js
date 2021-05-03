@@ -1,49 +1,34 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Container, Jumbotron } from "react-bootstrap";
 import ClassDetail from "./ClassDetail";
-// import { rootURL } from "../constants";
 import { dummyClassList } from "../constants";
-// import axios from 'axios'
-import { JumboP } from "./styled";
-
-const homeStyle = {
-  display: "flex",
-  flexFlow: "row wrap",
-  justifyContent: "space-around",
-  alignItems: "stretch",
-};
-
-const classDetail = {
-  url:
-    "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hurdle_-_The_Noun_Project.svg",
-  alt: "hurdle SVG by James VanDyke, CC0, via Wikimedia Commons",
-  style: {
-    width: "450px",
-    minWidth: "280px",
-    maxWidth: "80vw",
-    borderRadius: "12px",
-    marginTop: "1rem",
-    boxShadow: "3px 3px 5px 6px #ccc",
-  },
-};
+import { FlexRowDiv, JumboP } from "./styled";
+import EditClassForm from "./EditClassForm";
+import AddClassForm from "./AddClassForm";
+import Search from "./Search";
 
 // to simulate network load time
 const fakeDelayDuration = 1500;
 
 const Home = (props) => {
+  const { view } = props;
+
+  //"search", "edit", and "view" modes to display related components within Home based on view prop
+  const search = "search";
+  const edit = "edit";
+  const addClass = "addClass";
+
   const [classList, setClassList] = useState(null);
 
   useEffect(() => {
-    // axios.get(`${rootURL}`, (res)=>setClassList(res.data)) //uncomment and make appropriate changes when there is an array of classes to fetch
-
     const fakeDelay = setTimeout(() => {
+      // replace with axios request
       Promise.resolve()
         .then(() => setClassList(dummyClassList))
         .catch((err) => console.error(err));
     }, fakeDelayDuration);
 
-    return () => clearTimeout(fakeDelay);
+    return () => clearTimeout(fakeDelay); // remove after replacing FakeDelay with axios request
   }, []);
 
   return (
@@ -62,7 +47,7 @@ const Home = (props) => {
           **AnywhereFitness** is the all-in-one solution to meet your
           “on-location” fitness class needs. AnywhereFitness makes it painless
           for Instructors and Clients alike to hold and attend Fitness classes
-          wherever they might be held.{" "}
+          wherever they might be held.
         </JumboP>
 
         <JumboP>
@@ -74,25 +59,32 @@ const Home = (props) => {
           appointment or reservation right from the mobile app.
         </JumboP>
       </Jumbotron>
-      <Container style={homeStyle}>
-        {classList ? (
-          classList.map((listItem, index) => (
-            <ClassDetail
-              key={index}
-              style={classDetail.style}
-              class_id={listItem.class_id}
-              class_name={listItem.class_name}
-              type={listItem.type}
-              start_time={listItem.start_time}
-              duration={listItem.duration}
-              occasion={listItem.occasion}
-              day={listItem.day}
-              intensity={listItem.intensity}
-              location={listItem.location}
-              max_size={listItem.max_size}
-              instructor={listItem.instructor}
-            />
-          ))
+      <Container>
+        {view === edit ? (
+          <EditClassForm />
+        ) : view === addClass ? (
+          <AddClassForm />
+        ) : view === search ? (
+          <Search classList={classList} />
+        ) : classList ? (
+          <FlexRowDiv>
+            {classList.map((listItem, index) => (
+              <ClassDetail
+                key={index}
+                class_id={listItem.class_id}
+                class_name={listItem.class_name}
+                type={listItem.type}
+                start_time={listItem.start_time}
+                duration={listItem.duration}
+                occasion={listItem.occasion}
+                day={listItem.day}
+                intensity={listItem.intensity}
+                location={listItem.location}
+                max_size={listItem.max_size}
+                instructor={listItem.instructor}
+              />
+            ))}
+          </FlexRowDiv>
         ) : (
           <div className="loading">
             <h2>Getting list of classes...</h2>

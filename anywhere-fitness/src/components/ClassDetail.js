@@ -2,7 +2,7 @@ import React from "react";
 import { Badge, Button, Card, Table } from "react-bootstrap";
 
 const ClassDetail = (props) => {
-  const { style,
+  const {
     class_id,
     class_name,
     type,
@@ -15,9 +15,16 @@ const ClassDetail = (props) => {
     max_size,
     instructor } = props;
   return (
-    <Card style={style}>
+    <Card style={{
+      width: "450px",
+      minWidth: "280px",
+      maxWidth: "80vw",
+      borderRadius: "12px",
+      marginTop: "1rem",
+      boxShadow: "3px 3px 5px 6px #ccc",
+    }}>
     <Card.Body>
-      <Card.Title>{class_name}</Card.Title>
+      <Card.Title>{class_name.toUpperCase()}</Card.Title>
       <Card.Subtitle>{type}<Badge>{intensity}</Badge></Card.Subtitle>
       <Card.Text>Led by {instructor}</Card.Text>
         <Table>
