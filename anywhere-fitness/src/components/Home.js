@@ -1,10 +1,7 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from "react";
 import { Container, Jumbotron } from "react-bootstrap";
 import ClassDetail from "./ClassDetail";
-// import { rootURL } from "../constants";
 import { dummyClassList } from "../constants";
-// import axios from 'axios';
 import { JumboP } from "./styled";
 
 const homeStyle = {
@@ -21,15 +18,13 @@ const Home = () => {
   const [classList, setClassList] = useState(null);
 
   useEffect(() => {
-    //axios.get(`${rootURL}`, (res)=>setClassList(res.data)) //uncomment and make appropriate changes when there is an array of classes to fetch
-
-    const fakeDelay = setTimeout(() => {
+    const fakeDelay = setTimeout(() => {// replace with axios request
       Promise.resolve()
         .then(() => setClassList(dummyClassList))
         .catch((err) => console.error(err));
     }, fakeDelayDuration);
 
-    return () => clearTimeout(fakeDelay);
+    return () => clearTimeout(fakeDelay);// remove after replacing FakeDelay with axios request
   }, []);
 
   return (
@@ -48,7 +43,7 @@ const Home = () => {
           **AnywhereFitness** is the all-in-one solution to meet your
           “on-location” fitness class needs. AnywhereFitness makes it painless
           for Instructors and Clients alike to hold and attend Fitness classes
-          wherever they might be held.{" "}
+          wherever they might be held.
         </JumboP>
 
         <JumboP>
