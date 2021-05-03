@@ -1,9 +1,8 @@
 // import { useState } from "react";
 import Home from "./components/Home";
 import Login from "./components/Login";
-import Search from "./components/Search";
 import Signup from "./components/Signup";
-import PrivateRoute from "./components/PrivateRoute";
+// import PrivateRoute from "./components/PrivateRoute"; // uncommented so I could work on the search functions
 import { Route } from "react-router-dom";
 import Header from "./components/HeaderNav";
 
@@ -11,7 +10,6 @@ import Header from "./components/HeaderNav";
 import { StyledApp } from "./components/styled";
 
 // import PrivateRoute from "./components/PrivateRoute"
-import AddClassForm from "./components/AddClassForm";
 
 function App() {
   return (
@@ -24,10 +22,16 @@ function App() {
       {/* <PrivateRoute path="/search" component={Search} /> */}
 
       <Route path="/signup" component={Signup} />
+      {/* Keeps authorized users in home component for easier state management and access to views only allowed to authed users */}
       <Route path="/search">
         <Home view="search" />
       </Route>
-      <Route path="/add" component={AddClassForm} />
+      <Route path="/add" >
+        <Home view="addClass"/>
+      </Route>
+      <Route path="/edit">
+        <Home view="edit" />
+      </Route>
     </StyledApp>
   );
 }

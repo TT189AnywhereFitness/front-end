@@ -7,13 +7,6 @@ import EditClassForm from "./EditClassForm";
 import AddClassForm from "./AddClassForm";
 import Search from "./Search";
 
-const homeStyle = {
-  display: "flex",
-  flexFlow: "row wrap",
-  justifyContent: "space-around",
-  alignItems: "stretch",
-};
-
 // to simulate network load time
 const fakeDelayDuration = 1500;
 
