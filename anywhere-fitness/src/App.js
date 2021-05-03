@@ -11,7 +11,6 @@ import Header from "./components/HeaderNav";
 import { StyledApp } from "./components/styled";
 
 // import PrivateRoute from "./components/PrivateRoute"
-// import styled from 'styled-components';
 import AddClassForm from './components/AddClassForm'
 
 
@@ -25,7 +24,7 @@ function App() {
       <Route path="/signup" component={Signup} />
       <PrivateRoute path="/search" component={Search} />
 
-      <Route path='/signup' component={Signup} />
+      <Route path="/signup" component={Signup} />
       <Route path="/search" component = {Search}/>
       <Route path = "/add" component = {AddClassForm}/>
 
