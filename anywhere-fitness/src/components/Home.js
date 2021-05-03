@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Container, Jumbotron } from "react-bootstrap";
 import ClassDetail from "./ClassDetail";
 import { dummyClassList } from "../constants";
-import { JumboP } from "./styled";
+import { FlexRowDiv, JumboP } from "./styled";
 import EditClassForm from "./EditClassForm";
 import AddClassForm from "./AddClassForm";
 import Search from "./Search";
@@ -66,30 +66,32 @@ const Home = (props) => {
           appointment or reservation right from the mobile app.
         </JumboP>
       </Jumbotron>
-      <Container style={homeStyle}>
+      <Container>
         {view === edit ? (
           <EditClassForm />
         ) : view === addClass ? (
           <AddClassForm />
         ) : view === search ? (
-          <Search />
+          <Search classList={classList} />
         ) : classList ? (
-          classList.map((listItem, index) => (
-            <ClassDetail
-              key={index}
-              class_id={listItem.class_id}
-              class_name={listItem.class_name}
-              type={listItem.type}
-              start_time={listItem.start_time}
-              duration={listItem.duration}
-              occasion={listItem.occasion}
-              day={listItem.day}
-              intensity={listItem.intensity}
-              location={listItem.location}
-              max_size={listItem.max_size}
-              instructor={listItem.instructor}
-            />
-          ))
+          <FlexRowDiv>
+            {classList.map((listItem, index) => (
+              <ClassDetail
+                key={index}
+                class_id={listItem.class_id}
+                class_name={listItem.class_name}
+                type={listItem.type}
+                start_time={listItem.start_time}
+                duration={listItem.duration}
+                occasion={listItem.occasion}
+                day={listItem.day}
+                intensity={listItem.intensity}
+                location={listItem.location}
+                max_size={listItem.max_size}
+                instructor={listItem.instructor}
+              />
+            ))}
+          </FlexRowDiv>
         ) : (
           <div className="loading">
             <h2>Getting list of classes...</h2>

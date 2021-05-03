@@ -48,3 +48,9 @@ export const StyledButton = styled.button`
   background-color: white;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 `;
+export const FlexRowDiv = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+`;
