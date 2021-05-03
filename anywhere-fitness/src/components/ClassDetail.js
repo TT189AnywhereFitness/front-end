@@ -24,7 +24,7 @@ const ClassDetail = (props) => {
       boxShadow: "3px 3px 5px 6px #ccc",
     }}>
     <Card.Body>
-      <Card.Title>{class_name}</Card.Title>
+      <Card.Title>{class_name.toUpperCase()}</Card.Title>
       <Card.Subtitle>{type}<Badge>{intensity}</Badge></Card.Subtitle>
       <Card.Text>Led by {instructor}</Card.Text>
         <Table>

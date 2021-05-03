@@ -48,9 +48,26 @@ export const StyledButton = styled.button`
   background-color: white;
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
 `;
-export const FlexRowDiv = styled.div`
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: center;
-`;
+export const FlexRowDiv = {
+  Center: styled.div`
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+  `,
+  Start: styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  `,
+  End: styled.div`
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100%;
+  `,
+};
