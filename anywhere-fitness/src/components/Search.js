@@ -1,39 +1,62 @@
 import React, { useState } from "react";
-import { Dropdown, DropdownButton, Form } from "react-bootstrap";
+import { Form, InputGroup, FormControl } from "react-bootstrap";
 import ClassDetail from "./ClassDetail";
 import { FlexRowDiv } from "./styled";
 
 const Search = (props) => {
   const { classList } = props;
   const [filter, setFilter] = useState(null);
-  const handleSearchFilter = (val) => {
-    setFilter(val);
+  const handleChange = (e) => {
+    console.log(e);
   };
   return (
     <div>
       {/* create toggle group for filter criteria instead of dropdown to allow for multiple filters */}
-      <Form>
+      <Form onChange={handleChange}>
         <FlexRowDiv.Between>
-          <Form.Check type="switch" label={"Duration"} />
+          <Form.Check
+            type="switch"
+            label={"Duration"}
+            onChange={handleChange}
+          />
           <FlexRowDiv.Center>
-            {filter === "Duration"
-              ? [
-                  "Under half an hour",
-                  "Half hour to an hour",
-                  "1-2 Hours",
-                ].map((selection, index) => (
-                  <Form.Check
-                    key={`${index}_${selection}`}
-                    type="checkbox"
-                    id={`${selection}`}
-                    label={`${selection}`}
-                  />
-                ))
-              : null}
+            {filter === "Duration" ? (
+              [
+                "Under half an hour",
+                "Half hour to an hour",
+                "1-2 Hours",
+              ].map((selection, index) => (
+                <Form.Check
+                  key={`${index}_${selection}`}
+                  type="checkbox"
+                  id={`${selection}`}
+                  label={`${selection}`}
+                />
+              ))
+            ) : (
+              <p> </p>
+            )}
           </FlexRowDiv.Center>
         </FlexRowDiv.Between>
         <FlexRowDiv.Between>
           <Form.Check type="switch" label={"Instructor"} />
+          <FlexRowDiv.Start>
+            {filter === "Instructor" ? (
+              <InputGroup className="mb-3">
+                <InputGroup.Prepend>
+                  <InputGroup.Text id="basic-addon3">
+                    Instructor Name
+                  </InputGroup.Text>
+                </InputGroup.Prepend>
+                <FormControl
+                  id="instructor-name"
+                  aria-describedby="basic-addon3"
+                />
+              </InputGroup>
+            ) : (
+              <p> </p>
+            )}
+          </FlexRowDiv.Start>
         </FlexRowDiv.Between>
         <FlexRowDiv.Between>
           <Form.Check type="switch" label={"Day"} />
