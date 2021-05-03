@@ -14,20 +14,6 @@ const homeStyle = {
   alignItems: "stretch",
 };
 
-const classDetail = {
-  url:
-    "https://upload.wikimedia.org/wikipedia/commons/e/e4/Hurdle_-_The_Noun_Project.svg",
-  alt: "hurdle SVG by James VanDyke, CC0, via Wikimedia Commons",
-  style: {
-    width: "450px",
-    minWidth: "280px",
-    maxWidth: "80vw",
-    borderRadius: "12px",
-    marginTop: "1rem",
-    boxShadow: "3px 3px 5px 6px #ccc",
-  },
-};
-
 // to simulate network load time
 const fakeDelayDuration = 1500;
 
@@ -79,7 +65,6 @@ const Home = (props) => {
           classList.map((listItem, index) => (
             <ClassDetail
               key={index}
-              style={classDetail.style}
               class_id={listItem.class_id}
               class_name={listItem.class_name}
               type={listItem.type}
