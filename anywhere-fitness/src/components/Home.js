@@ -3,6 +3,9 @@ import { Container, Jumbotron } from "react-bootstrap";
 import ClassDetail from "./ClassDetail";
 import { dummyClassList } from "../constants";
 import { JumboP } from "./styled";
+import EditClassForm from "./EditClassForm";
+import AddClassForm from "./AddClassForm";
+import Search from "./Search";
 
 const homeStyle = {
   display: "flex",
@@ -14,17 +17,25 @@ const homeStyle = {
 // to simulate network load time
 const fakeDelayDuration = 1500;
 
-const Home = () => {
+const Home = (props) => {
+  const { view } = props;
+
+  //"search", "edit", and "view" modes to display related components within Home based on view prop
+  const search = "search";
+  const edit = "edit";
+  const addClass = "addClass";
+
   const [classList, setClassList] = useState(null);
 
   useEffect(() => {
-    const fakeDelay = setTimeout(() => {// replace with axios request
+    const fakeDelay = setTimeout(() => {
+      // replace with axios request
       Promise.resolve()
         .then(() => setClassList(dummyClassList))
         .catch((err) => console.error(err));
     }, fakeDelayDuration);
 
-    return () => clearTimeout(fakeDelay);// remove after replacing FakeDelay with axios request
+    return () => clearTimeout(fakeDelay); // remove after replacing FakeDelay with axios request
   }, []);
 
   return (
@@ -56,7 +67,13 @@ const Home = () => {
         </JumboP>
       </Jumbotron>
       <Container style={homeStyle}>
-        {classList ? (
+        {view === edit ? (
+          <EditClassForm />
+        ) : view === addClass ? (
+          <AddClassForm />
+        ) : view === search ? (
+          <Search />
+        ) : classList ? (
           classList.map((listItem, index) => (
             <ClassDetail
               key={index}

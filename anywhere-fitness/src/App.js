@@ -11,8 +11,7 @@ import Header from "./components/HeaderNav";
 import { StyledApp } from "./components/styled";
 
 // import PrivateRoute from "./components/PrivateRoute"
-import AddClassForm from './components/AddClassForm'
-
+import AddClassForm from "./components/AddClassForm";
 
 function App() {
   return (
@@ -22,13 +21,13 @@ function App() {
       <Route path="/login" component={Login} />
 
       <Route path="/signup" component={Signup} />
-      <PrivateRoute path="/search" component={Search} />
+      {/* <PrivateRoute path="/search" component={Search} /> */}
 
       <Route path="/signup" component={Signup} />
-      <Route path="/search" component = {Search}/>
-      <Route path = "/add" component = {AddClassForm}/>
-
-
+      <Route path="/search">
+        <Home view="search" />
+      </Route>
+      <Route path="/add" component={AddClassForm} />
     </StyledApp>
   );
 }
