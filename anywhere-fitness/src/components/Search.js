@@ -1,18 +1,30 @@
 import React, { useState } from "react";
-import { Form, InputGroup, FormControl } from "react-bootstrap";
+import { Form, InputGroup, FormControl, Button } from "react-bootstrap";
 import ClassDetail from "./ClassDetail";
 import { FlexRowDiv } from "./styled";
 
 const Search = (props) => {
   const { classList } = props;
-  const [filter, setFilter] = useState(null);
-  const handleChange = (e) => {
-    console.log(e);
+
+  const initialFilters = {
+    Duration: false,
+    Instructor: false,
+    Day: false,
+    Difficulty: false,
   };
+
+  const [filters, setFilters] = useState(initialFilters);
+
+  const handleChange = (e) => console.log(e);
+
+  const handleSubmit = (e) => console.log(e);
+
   return (
     <div>
       {/* create toggle group for filter criteria instead of dropdown to allow for multiple filters */}
-      <Form onChange={handleChange}>
+
+      {/* show selected form section if the corresponding switch is toggled */}
+      <Form onChange={handleChange} onSubmit={handleSubmit}>
         <FlexRowDiv.Between>
           <Form.Check
             type="switch"
@@ -20,7 +32,7 @@ const Search = (props) => {
             onChange={handleChange}
           />
           <FlexRowDiv.Center>
-            {filter === "Duration" ? (
+            {filters.Duration ? (
               [
                 "Under half an hour",
                 "Half hour to an hour",
@@ -41,7 +53,7 @@ const Search = (props) => {
         <FlexRowDiv.Between>
           <Form.Check type="switch" label={"Instructor"} />
           <FlexRowDiv.Start>
-            {filter === "Instructor" ? (
+            {filters.Instructor ? (
               <InputGroup className="mb-3">
                 <InputGroup.Prepend>
                   <InputGroup.Text id="basic-addon3">
@@ -64,10 +76,17 @@ const Search = (props) => {
         <FlexRowDiv.Between>
           <Form.Check type="switch" label={"Difficulty"} />
         </FlexRowDiv.Between>
+        <FlexRowDiv.End>
+          <Button
+            type="submit"
+            // eslint-disable-next-line eqeqeq
+            variant="success"
+          >
+            Find Classes
+          </Button>
+        </FlexRowDiv.End>
       </Form>
 
-      {/* show selected form section if that radio button is selected */}
-      {/* Duration search */}
       <FlexRowDiv.Center>
         {classList ? (
           classList.map((listItem, index) => (
