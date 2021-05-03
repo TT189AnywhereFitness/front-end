@@ -7,32 +7,44 @@ const Search = (props) => {
   const { classList } = props;
   const [filter, setFilter] = useState(null);
   const handleSearchFilter = (val) => {
-    setFilter(val)
+    setFilter(val);
   };
   return (
     <div>
-      <FlexRowDiv.End>
-        {/* dropdown for search type */}
-        <DropdownButton onChange={e => console.log(e)} title="search_filter">
-          <Dropdown.Item onSelect={() => handleSearchFilter("Duration")} >
-            Duration
-          </Dropdown.Item>
-          <Dropdown.Item onSelect={() => handleSearchFilter("Instructor")} >
-            Instructor
-          </Dropdown.Item>
-          <Dropdown.Item onSelect={() => handleSearchFilter("Day")} >
-            Day
-          </Dropdown.Item>
-          <Dropdown.Item onSelect={() => handleSearchFilter("Difficulty")} >
-            Difficulty
-          </Dropdown.Item>
-        </DropdownButton>
-        {/* form depending on search type */}
-      </FlexRowDiv.End>
+      {/* create toggle group for filter criteria instead of dropdown to allow for multiple filters */}
+      <Form>
+        <FlexRowDiv.Between>
+          <Form.Check type="switch" label={"Duration"} />
+          <FlexRowDiv.Center>
+            {filter === "Duration"
+              ? [
+                  "Under half an hour",
+                  "Half hour to an hour",
+                  "1-2 Hours",
+                ].map((selection, index) => (
+                  <Form.Check
+                    key={`${index}_${selection}`}
+                    type="checkbox"
+                    id={`${selection}`}
+                    label={`${selection}`}
+                  />
+                ))
+              : null}
+          </FlexRowDiv.Center>
+        </FlexRowDiv.Between>
+        <FlexRowDiv.Between>
+          <Form.Check type="switch" label={"Instructor"} />
+        </FlexRowDiv.Between>
+        <FlexRowDiv.Between>
+          <Form.Check type="switch" label={"Day"} />
+        </FlexRowDiv.Between>
+        <FlexRowDiv.Between>
+          <Form.Check type="switch" label={"Difficulty"} />
+        </FlexRowDiv.Between>
+      </Form>
+
+      {/* show selected form section if that radio button is selected */}
       {/* Duration search */}
-      <FlexRowDiv.End>
-        {filter === "Duration" ? <Form>Duration</Form> : null}
-      </FlexRowDiv.End>
       <FlexRowDiv.Center>
         {classList ? (
           classList.map((listItem, index) => (
