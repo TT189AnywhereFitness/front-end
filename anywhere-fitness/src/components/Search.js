@@ -6,7 +6,7 @@ const Search = (props) => {
   const { classList } = props;
   return (
     <FlexRowDiv>
-      {classList.map((listItem, index) => (
+      {classList ? classList.map((listItem, index) => (
         <ClassDetail
           key={index}
           class_id={listItem.class_id}
@@ -21,7 +21,7 @@ const Search = (props) => {
           max_size={listItem.max_size}
           instructor={listItem.instructor}
         />
-      ))}
+      )) : <div>Loading...</div> }
     </FlexRowDiv>
   );
 };
